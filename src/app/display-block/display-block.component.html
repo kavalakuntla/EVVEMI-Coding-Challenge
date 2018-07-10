@@ -1,12 +1,21 @@
-<div align=center class="container">
-  <div *ngFor="let block of blocks; let i=index">
-      <span>
-          <div class="block" (click)="toggleColor($event)"
-               *ngFor="let block of blocks[i]">
-                {{ block }}
-          </div>
-      </span>
-  </div>
+<div align=center class="input-container">
+    <label>Enter Total Blocks</label>
+    <input [(ngModel)]="blockCount" type="number" #blockCount_=ngModel>
+
+    <label>Enter Blocks per row</label>
+    <input [(ngModel)]="blocksPerRow" type="number" #blockPerRow_=ngModel>
+
+    <button class="btn" (click)="displayBlocks()">Submit</button>
 </div>
+<div align=center>
+    <div *ngFor="let block of blocks; let i=index">
+            <div class="block light-bg" (click)="toggleColor($event)"
+                 *ngFor="let block of blocks[i]">
+                  {{ block }}
+            </div>
+    </div>
+</div> 
+
+
 
 

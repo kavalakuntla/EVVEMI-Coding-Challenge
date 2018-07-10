@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-display-block',
@@ -7,13 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DisplayBlockComponent {
 
-  private blocks: String[][] = [];
-  private isBlack: Boolean = true;
+  private blocks: String[][];
 
-  @Input() blockCount = 25;
-  @Input() blocksPerRow = 4;
+  @Input() blockCount;
+  @Input() blocksPerRow;
+  constructor() {}
 
-  constructor() {
+  displayBlocks() {
+    this.blocks = [];
     const remainder: number = this.blockCount % this.blocksPerRow;
     const quotient: number =  Math.floor(this.blockCount / this.blocksPerRow);
     // Intializing the 2D array to store the blocks
@@ -30,10 +31,20 @@ export class DisplayBlockComponent {
         this.blocks[quotient][i] = 'X';
       }
     }
+    this.blockCount = '';
+    this.blocksPerRow = '';
   }
-
   toggleColor(event) {
-     event.srcElement.style.backgroundColor = '#333';
+    const classList = event.srcElement.classList;
+
+    if (classList.contains('dark-bg')) {
+          classList.add('light-bg');
+          classList.remove('dark-bg');
+    }
+    else {
+          classList.add('dark-bg');
+          classList.remove('light-bg');
+    }
   }
 }
 

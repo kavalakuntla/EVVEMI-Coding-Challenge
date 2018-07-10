@@ -1,0 +1,12 @@
+<div align=center class="container">
+  <div *ngFor="let block of blocks; let i=index">
+      <span>
+          <div class="block" (click)="toggleColor($event)"
+               *ngFor="let block of blocks[i]">
+                {{ block }}
+          </div>
+      </span>
+  </div>
+</div>
+
+

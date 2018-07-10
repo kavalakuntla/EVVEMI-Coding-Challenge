@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-
+import { DisplayBlockComponent } from './display-block/display-block.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DisplayBlockComponent,
   ],
   imports: [
     BrowserModule
